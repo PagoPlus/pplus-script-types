@@ -1,5 +1,3 @@
-import "../utils"
-
 declare global {
   function print(msg: any): void
 
@@ -9,3 +7,5 @@ declare global {
     function print(msg: any): void
   }
 }
+
+export default global

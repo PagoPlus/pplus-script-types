@@ -32,3 +32,5 @@ declare global {
     function set_device_metadata(device_id: string, new_metadata: Record<string, JSONValue>): GenericDevice | null
   }
 }
+
+export default global

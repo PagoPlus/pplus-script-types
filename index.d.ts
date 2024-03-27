@@ -13,6 +13,10 @@
 
 // <reference types="lua-types/5.3" />
 
-import "./modules/global.d.ts"
-import "./modules/data.d.ts"
-import "./modules/json.d.ts"
+export type * from "./modules/global.d.ts"
+export type * from "./modules/data.d.ts"
+export type * from "./modules/json.d.ts"
+
+declare global {}
+
+export default global

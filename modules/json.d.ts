@@ -26,3 +26,5 @@ declare global {
     function decode(payload: string): [true, JSONValue] | [false, string]
   }
 }
+
+export default global
