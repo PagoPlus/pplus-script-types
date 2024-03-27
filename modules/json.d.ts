@@ -1,3 +1,5 @@
+/** @noSelfInFile **/
+
 import type { JSONValue } from "../utils"
 
 declare global {
@@ -9,6 +11,7 @@ declare global {
      * the second value is the encoded data.
      *
      * @param payload The data to convert into JSON
+     * @tupleReturn
      */
     function encode(payload: JSONValue): [boolean, string]
 
@@ -22,9 +25,10 @@ declare global {
      * value holds the error.
      *
      * @param payload The JSON string to parse.
+     * @tupleReturn
      */
     function decode(payload: string): [true, JSONValue] | [false, string]
   }
 }
 
-export default global
+export {}

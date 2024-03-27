@@ -1,11 +1,13 @@
+/** @noSelfInFile **/
+
 declare global {
   function print(msg: any): void
 
-  namespace global {
+  namespace globals {
     function id(): string
     function runid(): string
     function print(msg: any): void
   }
 }
 
-export default global
+export default globals

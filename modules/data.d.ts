@@ -1,3 +1,5 @@
+/** @noSelfInFile **/
+
 import type { JSONValue } from "../utils"
 
 type GenericDevice = {
@@ -33,4 +35,4 @@ declare global {
   }
 }
 
-export default global
+export {}
