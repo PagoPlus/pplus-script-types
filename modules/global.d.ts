@@ -1,7 +1,11 @@
-declare function print(msg: any): void
+import "../utils"
 
-declare namespace global {
-  function id(): string
-  function runid(): string
+declare global {
   function print(msg: any): void
+
+  namespace global {
+    function id(): string
+    function runid(): string
+    function print(msg: any): void
+  }
 }
