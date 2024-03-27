@@ -9,7 +9,7 @@
     "*.d.ts"
   ],
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint index.d.ts",
     "check": "tsc --noEmit && npm run lint",
     "prepublishOnly": "npm run check"
   },

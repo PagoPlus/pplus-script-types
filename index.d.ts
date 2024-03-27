@@ -1,4 +1,3 @@
-
 /* Types for luerl */
 /// <reference types="@typescript-to-lua/language-extensions" />
 /// <reference types="lua-types/core/global.d.ts" />
@@ -14,6 +13,6 @@
 
 // <reference types="lua-types/5.3" />
 
-/// <reference path="modules/global.d.ts" />
-/// <reference path="modules/data.d.ts" />
-/// <reference path="modules/json.d.ts" />
+import "./modules/global.d.ts"
+import "./modules/data.d.ts"
+import "./modules/json.d.ts"
