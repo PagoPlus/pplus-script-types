@@ -13,7 +13,7 @@ declare global {
      * @param payload The data to convert into JSON
      * @tupleReturn
      */
-    function encode(payload: JSONValue): [boolean, string]
+    function encode(payload: JSONValue): LuaMultiReturn<[boolean, string]>
 
     /**
      * Parses the JSON string and returns the data.
@@ -27,7 +27,7 @@ declare global {
      * @param payload The JSON string to parse.
      * @tupleReturn
      */
-    function decode(payload: string): [true, JSONValue] | [false, string]
+    function decode(payload: string): LuaMultiReturn<[true, JSONValue]> | LuaMultiReturn<[false, string]>
   }
 }
 
