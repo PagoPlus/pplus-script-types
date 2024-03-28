@@ -3,6 +3,9 @@ import type { FormKitSchemaDefinition } from "@formkit/core"
 import type { JSONSchema, FromSchema } from "json-schema-to-ts"
 
 export type SettingsSchemaBuilder = <SCHEMA extends JSONSchema, DATA = FromSchema<SCHEMA>>(schema: SCHEMA) => DATA
+export type MaybeSettingsSchemaBuilder = <SCHEMA extends JSONSchema, DATA = FromSchema<SCHEMA>>(
+  schema: SCHEMA,
+) => DATA | undefined
 
 export interface ScriptMetadata<SetSchema extends JSONSchema | undefined> {
   /**
@@ -30,7 +33,7 @@ export interface ScriptMetadata<SetSchema extends JSONSchema | undefined> {
    * If you want to use some nicer-looking inputs, we provide PrimeVue components
    * for FormKit. You can read about those [here](https://formkit-primevue.netlify.app/).
    */
-  settingsForm?: FormKitSchemaDefinition
+  settings_form?: FormKitSchemaDefinition
   /**
    * If `settingsForm` is defined, then you can add a `settingsSchema` to add
    * JSON Schema validation to your settings form.
@@ -40,7 +43,7 @@ export interface ScriptMetadata<SetSchema extends JSONSchema | undefined> {
    *
    * Extremely recommended to add if you are using `settingsForm`.
    */
-  settingsSchema?: SetSchema
+  settings_schema?: SetSchema
 }
 
 declare global {
@@ -52,9 +55,16 @@ declare global {
 
   // our real namespace! All of these are real.
   namespace pplus {
-    function set_script_metadata(metadata: ScriptMetadata<JSONSchema>): void
+    /**
+     * Set the metadata for this script.
+     * @param metadata The metadata of the script.
+     */
+    function set_script_metadata(metadata: ScriptMetadata<JSONSchema>): true | LuaMultiReturn<[false, string[]]>
 
-    const get_settings: SettingsSchemaBuilder
+    /**
+     * Get settings for this script. This is only available if the script has `settings_schema` defined.
+     */
+    const get_settings: MaybeSettingsSchemaBuilder
   }
 }
 
