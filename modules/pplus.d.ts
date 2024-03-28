@@ -2,7 +2,9 @@
 import type { FormKitSchemaDefinition } from "@formkit/core"
 import type { JSONSchema, FromSchema } from "json-schema-to-ts"
 
-export interface ScriptMetadata<SettingsSchema extends JSONSchema | undefined> {
+export type SettingsSchemaBuilder = <SCHEMA extends JSONSchema, DATA = FromSchema<SCHEMA>>(schema: SCHEMA) => DATA
+
+export interface ScriptMetadata<SetSchema extends JSONSchema | undefined> {
   /**
    * The name of the script
    */
@@ -38,7 +40,7 @@ export interface ScriptMetadata<SettingsSchema extends JSONSchema | undefined> {
    *
    * Extremely recommended to add if you are using `settingsForm`.
    */
-  settingsSchema?: SettingsSchema
+  settingsSchema?: SetSchema
 }
 
 declare global {
@@ -50,13 +52,9 @@ declare global {
 
   // our real namespace! All of these are real.
   namespace pplus {
-    function set_script_metadata<SettingsSchema extends JSONSchema | undefined>(
-      metadata: ScriptMetadata<SettingsSchema>,
-    ): void
+    function set_script_metadata(metadata: ScriptMetadata<JSONSchema>): void
 
-    function get_settings<SettingsSchema extends JSONSchema>(
-      defaults: Partial<FromSchema<SettingsSchema>>,
-    ): FromSchema<SettingsSchema>
+    const get_settings: SettingsSchemaBuilder
   }
 }
 
