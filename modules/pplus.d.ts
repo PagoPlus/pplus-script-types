@@ -62,6 +62,11 @@ declare global {
     function set_script_metadata(metadata: ScriptMetadata<JSONSchema>): true | LuaMultiReturn<[false, string[]]>
 
     /**
+     * Get the metadata of this script.
+     */
+    function get_script_metadata(): ScriptMetadata<JSONSchema>
+
+    /**
      * Get settings for this script. This is only available if the script has `settings_schema` defined.
      */
     const get_settings: MaybeSettingsSchemaBuilder
