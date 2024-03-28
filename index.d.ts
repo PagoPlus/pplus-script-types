@@ -18,6 +18,7 @@
 export type * from "./modules/global.d.ts"
 export type * from "./modules/data.d.ts"
 export type * from "./modules/json.d.ts"
+export type * from "./modules/pplus.d.ts"
 
 declare global {}
 

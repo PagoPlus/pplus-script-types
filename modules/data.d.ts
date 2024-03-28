@@ -10,6 +10,7 @@ type GenericDevice = {
   created_at: string
   updated_at: string
 }
+
 declare global {
   namespace data {
     /**

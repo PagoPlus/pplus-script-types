@@ -31,5 +31,10 @@
     "prettier": "^3.2.5",
     "typescript": "=5.4.2",
     "typescript-to-lua": "^1.25.1"
+  },
+  "dependencies": {
+    "@formkit/core": "^1.6.1",
+    "@types/json-schema": "^7.0.15",
+    "json-schema-to-ts": "^3.0.1"
   }
 }
